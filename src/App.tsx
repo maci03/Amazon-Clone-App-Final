@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Route, Routes } from 'react-router-dom'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -11,6 +11,8 @@ import CheckOutScreen from './screens/CheckOutScreen'
 import PaymentScreen from './screens/PaymentScreen'
 import Loading from './components/Loading'
 import { auth } from './config/firebase'
+import ProductSearch from "./search/search";
+
 
 function App() {
 	const [user, loading, error] = useAuthState(auth)
@@ -21,21 +23,25 @@ function App() {
 	}
 
 	return (
-		<AppWrapper>
-			{user ? (
-				<Routes>
-					<Route path="/" element={<HomeScreen />} />
-					<Route path="/login" element={<LoginScreen />} />
-					<Route path="/register" element={<SignUpScreen />} />
-					<Route path="/payment" element={<PaymentScreen />} />
-					<Route path="/order" element={<OrderScreen />} />
-					<Route path="/checkout" element={<CheckOutScreen />} />
-				</Routes>
-			) : (
-				<LoginScreen />
-			)}
-		</AppWrapper>
-	)
+    <AppWrapper>
+      {user ? (
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/register" element={<SignUpScreen />} />
+          <Route path="/payment" element={<PaymentScreen />} />
+          <Route path="/order" element={<OrderScreen />} />
+          <Route path="/checkout" element={<CheckOutScreen />} />
+          <Route
+            path="/search"
+            element={<ProductSearch products={yourProductData} />}
+          />
+        </Routes>
+      ) : (
+        <LoginScreen />
+      )}
+    </AppWrapper>
+  );
 }
 
 export default App
