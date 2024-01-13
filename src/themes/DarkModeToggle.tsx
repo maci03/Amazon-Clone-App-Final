@@ -8,19 +8,14 @@ const ToggleButton = styled.button`
 `;
 
 const DarkModeToggle: React.FC = () => {
-  const { ToggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleToggle = () => {
     setIsDarkMode(!isDarkMode);
-    ToggleTheme();
+    toggleTheme(); 
   };
-  return(
-      <ToggleButton onClick={handleToggle}>
-          dark mode
-      </ToggleButton>
-  
-  )
+  return <ToggleButton onClick={handleToggle}>dark mode</ToggleButton>;
 };
 
 export default DarkModeToggle;
