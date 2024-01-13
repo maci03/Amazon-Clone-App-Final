@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { Route, Routes } from 'react-router-dom'
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -12,7 +12,7 @@ import PaymentScreen from './screens/PaymentScreen'
 import Loading from './components/Loading'
 import { auth } from './config/firebase'
 import ProductSearch from "./search/search";
-
+import items from './data/Data';
 
 function App() {
 	const [user, loading, error] = useAuthState(auth)
@@ -23,6 +23,7 @@ function App() {
 	}
 
 	return (
+		
     <AppWrapper>
       {user ? (
         <Routes>
@@ -32,10 +33,7 @@ function App() {
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/order" element={<OrderScreen />} />
           <Route path="/checkout" element={<CheckOutScreen />} />
-          <Route
-            path="/search"
-            element={<ProductSearch products={yourProductData} />}
-          />
+          <Route path="/search" element={<ProductSearch products={items} />} />
         </Routes>
       ) : (
         <LoginScreen />

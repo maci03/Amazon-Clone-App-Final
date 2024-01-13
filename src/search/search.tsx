@@ -39,7 +39,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ products }) => {
               <h3>{product.title}</h3>
               <p>{product.description}</p>
               <p>Price: ${product.price}</p>
-              {/* Add other product details as needed */}
+              
             </div>
           </li>
         ))}

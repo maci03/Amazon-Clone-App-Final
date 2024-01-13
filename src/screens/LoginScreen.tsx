@@ -149,7 +149,7 @@ const LoginScreen = () => {
 					<span> Help </span>
 				</div>
 				<div className="copyRight">
-					<span>&copy; 1996-2021, Amazon.com, Inc. or its affiliates</span>
+					<span>&copy; 1996-2024, Amazon.com, Inc. or its affiliates</span>
 				</div>
 			</Container>
 		</LogInWrapper>
