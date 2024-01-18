@@ -1,9 +1,12 @@
+// GlobalStyles.ts
 
-import { createGlobalStyle } from "styled-components";
-import { MyTheme } from "./Themes";
+import { createGlobalStyle, ThemedStyledProps } from "styled-components";
+import { MyTheme } from "../themes/Themes";
 
-export const GlobalStyles = createGlobalStyle<MyTheme>`
+const GlobalStyles = createGlobalStyle<MyTheme>`
   body {
-    background-color: ${(props) => props.theme.body};
+    background-color: ${(props) => props.theme?.body};
   }
 `;
+
+export default GlobalStyles;

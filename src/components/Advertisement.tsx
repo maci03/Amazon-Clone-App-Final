@@ -7,13 +7,12 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 // @ts-ignore
 import Fade from 'react-reveal/Fade'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
 import { auth } from '../config/firebase'
 
 const Advertisement = () => {
 	const [burgerMenuStatus, SetBurgerMenuStatus] = useState(false)
 	const [user] = useAuthState(auth)
-	
+ 
 	return (
     <Wrapper>
       {/* Hidden Menue */}
@@ -117,8 +116,9 @@ const Advertisement = () => {
             <li>
               <a>English - EN </a>
             </li>
-            <li></li>
-            <button onClick={() => themeToggler()}>Change Theme</button>
+            <li>
+              jkjjj
+            </li>
             <li>
               <a>Customs Services </a>
             </li>

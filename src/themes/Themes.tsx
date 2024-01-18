@@ -1,5 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from "styled-components";
-
+import { DefaultTheme } from "styled-components";
 
 export interface MyTheme extends DefaultTheme {
   body: string;
@@ -15,12 +14,3 @@ export const darkTheme: MyTheme = {
   body: "#000",
   fontColor: "#fff",
 };
-export const GlobalStyles = createGlobalStyle`
-
-	body {
-
-		background-color: ${(props) => props.theme.body};
-
-	}
-
-`;
