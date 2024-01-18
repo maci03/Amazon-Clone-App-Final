@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -12,16 +12,28 @@ import PaymentScreen from "./screens/PaymentScreen";
 import Loading from "./components/Loading";
 import { auth } from "./config/firebase";
 import items from "./data/Data";
+import { lightTheme, darkTheme, GlobalStyles } from "../src/themes/Themes";
+
+const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
+  const [theme, setTheme] = useState("light");
   console.log(user, loading);
 
   if (loading) {
     return <Loading />;
   }
 
+ const themeToggler = () => {
+   theme === "light" ? setTheme("dark") : setTheme("light");
+ };
   return (
+       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <StyledApp>
     <AppWrapper>
       {user ? (
         <Routes>
@@ -37,6 +49,8 @@ function App() {
         <LoginScreen />
       )}
     </AppWrapper>
+    </StyledApp>
+    </ThemeProvider>
   );
 }
 

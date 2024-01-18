@@ -117,9 +117,8 @@ const Advertisement = () => {
             <li>
               <a>English - EN </a>
             </li>
-            <li>
-            </li>
-                დარკ თემა
+            <li></li>
+            <button onClick={() => themeToggler()}>Change Theme</button>
             <li>
               <a>Customs Services </a>
             </li>
