@@ -118,8 +118,8 @@ const Advertisement = () => {
               <a>English - EN </a>
             </li>
             <li>
-              <a>Dark Mode</a>
             </li>
+                დარკ თემა
             <li>
               <a>Customs Services </a>
             </li>
