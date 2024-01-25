@@ -1,19 +1,21 @@
-import React, { memo, useState } from 'react'
-import styled from 'styled-components'
-import MenuIcon from '@material-ui/icons/Menu'
-import CloseIcon from '@material-ui/icons/Close'
-import { IconButton } from '@material-ui/core'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import React, { memo, useContext, useState } from "react";
+import styled from "styled-components";
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
+import { IconButton } from "@material-ui/core";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 // @ts-ignore
-import Fade from 'react-reveal/Fade'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '../config/firebase'
+import Fade from "react-reveal/Fade";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../config/firebase";
+import { ThemeContext } from "../context/darkModeContext";
 
 const Advertisement = () => {
-	const [burgerMenuStatus, SetBurgerMenuStatus] = useState(false)
-	const [user] = useAuthState(auth)
- 
-	return (
+  const [burgerMenuStatus, SetBurgerMenuStatus] = useState(false);
+  const [user] = useAuthState(auth);
+  const { themeToggler, theme } = useContext(ThemeContext);
+
+  return (
     <Wrapper>
       {/* Hidden Menue */}
       <div className="first__container hidden__menue">
@@ -117,7 +119,7 @@ const Advertisement = () => {
               <a>English - EN </a>
             </li>
             <li>
-              jkjjj
+              <button onClick={() => themeToggler(theme)}>Change Theme</button>
             </li>
             <li>
               <a>Customs Services </a>
@@ -127,128 +129,128 @@ const Advertisement = () => {
       </BurgerNav>
     </Wrapper>
   );
-}
+};
 
-export default memo(Advertisement)
+export default memo(Advertisement);
 
 const Wrapper = styled.div`
-	width: 100vw;
-	background: #232f3e;
-	color: #fff;
-	height: 41px;
-	display: flex;
-	align-items: center;
-	padding: 3px 20px;
-	justify-content: space-between;
-	font-size: 0.9rem;
-	flex-flow: row wrap;
-	overflow: hidden;
+  width: 100vw;
+  background: #232f3e;
+  color: #fff;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  padding: 3px 20px;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  flex-flow: row wrap;
+  overflow: hidden;
 
-	.first__container,
-	.second__container,
-	.first__container .menu {
-		display: flex;
-		align-items: center;
-	}
+  .first__container,
+  .second__container,
+  .first__container .menu {
+    display: flex;
+    align-items: center;
+  }
 
-	.first__container div,
-	.second__container div,
-	.first__container .menu {
-		transition: 0.4s;
-		cursor: pointer;
-		margin-right: 10px;
-		padding: 5px 10px;
-		&:hover {
-			border: 1px solid white;
-			box-shadow: 7px -1px 24px 5px rgba(18, 25, 53, 0.75);
-		}
-	}
+  .first__container div,
+  .second__container div,
+  .first__container .menu {
+    transition: 0.4s;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px 10px;
+    &:hover {
+      border: 1px solid white;
+      box-shadow: 7px -1px 24px 5px rgba(18, 25, 53, 0.75);
+    }
+  }
 
-	.first__container {
-		@media (max-width: 576px) {
-			display: none;
-		}
-	}
+  .first__container {
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
 
-	.first__container .menu {
-		padding-left: 0;
-	}
-	.first__container .menu .MenuIcon {
-		margin-right: 7px;
-	}
+  .first__container .menu {
+    padding-left: 0;
+  }
+  .first__container .menu .MenuIcon {
+    margin-right: 7px;
+  }
 
-	.first__container.hidden__menue {
-		display: none;
-		@media (max-width: 576px) {
-			display: block;
-		}
-	}
-`
+  .first__container.hidden__menue {
+    display: none;
+    @media (max-width: 576px) {
+      display: block;
+    }
+  }
+`;
 
 const BurgerNav = styled.div`
-	transform: ${(props) =>
-		// @ts-ignore
-		props.showMenu ? 'translateX(0)' : 'translateX(-100%)'};
-	transition: transform 0.3s;
-	position: fixed;
-	color: black;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	overflow-y: auto;
-	background: white !important;
-	min-width: 300px;
-	width: 350px;
-	padding-bottom: 30px;
+  transform: ${(props) =>
+    // @ts-ignore
+    props.showMenu ? "translateX(0)" : "translateX(-100%)"};
+  transition: transform 0.3s;
+  position: fixed;
+  color: black;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: white !important;
+  min-width: 300px;
+  width: 350px;
+  padding-bottom: 30px;
 
-	@media (max-width: 576px) {
-		width: 300px;
-	}
+  @media (max-width: 576px) {
+    width: 300px;
+  }
 
-	@media (max-width: 300px) {
-		min-width: 250px;
-		width: 250;
-	}
+  @media (max-width: 300px) {
+    min-width: 250px;
+    width: 250;
+  }
 
-	.greeting {
-		color: white;
-		background: #131921;
-		padding: 10px 20px;
-		padding-right: 10px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+  .greeting {
+    color: white;
+    background: #131921;
+    padding: 10px 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-		.greeting-div {
-			display: flex;
-			align-items: center;
+    .greeting-div {
+      display: flex;
+      align-items: center;
 
-			h3 {
-				padding: 0px;
-			}
-		}
+      h3 {
+        padding: 0px;
+      }
+    }
 
-		.icon {
-			color: white;
-			font-size: 1.2em;
-		}
-	}
+    .icon {
+      color: white;
+      font-size: 1.2em;
+    }
+  }
 
-	.links-container {
-		padding: 0 20px;
-	}
+  .links-container {
+    padding: 0 20px;
+  }
 
-	h3 {
-		padding: 20px;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-		width: 100%;
-	}
+  h3 {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+  }
 
-	li {
-		list-style-type: none;
-		padding: 15px 0;
-	}
-	a {
-		cursor: pointer;
-	}
-`
+  li {
+    list-style-type: none;
+    padding: 15px 0;
+  }
+  a {
+    cursor: pointer;
+  }
+`;

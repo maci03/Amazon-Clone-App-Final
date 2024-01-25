@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,18 +14,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "typeRoots": [
-      "node_modules/@types",
-      "./src/types"
-    ],
+    "typeRoots": ["node_modules/@types", "./src/types"],
     "types": [
       "react",
-      "react-dom",
-      "react-firebase-hooks/auth"
+      "react-dom"
+      // "react-firebase-hooks/auth"
     ],
     "noEmit": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

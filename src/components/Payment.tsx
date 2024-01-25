@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import CartItem from './CartItem'
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from 'react-router-dom'
-import NumberFormat from 'react-number-format'
+import { NumericFormat } from "react-number-format";
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { auth } from '../config/firebase'
@@ -97,7 +97,7 @@ const Payment = () => {
 							Visa Card or Master Card{' '}
 							<span>
 								(Total Payment :{' '}
-								<NumberFormat
+								<NumericFormat
 									value={totalPrice}
 									displayType={'text'}
 									thousandSeparator={true}

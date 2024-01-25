@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import styled from "styled-components";
-import NumberFormat from "react-number-format";
+import { NumericFormat } from "react-number-format";
 import { useSelector } from "react-redux";
 import { selectBasket } from "../features/basket/basketSlice";
 import { Link } from "react-router-dom";
@@ -29,7 +29,7 @@ const SubTotal = () => {
       <h3>
         Subtotal({basket?.length} items):
         <span className="cartTotal-price">
-          <NumberFormat
+          <NumericFormat
             value={totalPrice}
             displayType={"text"}
             thousandSeparator={true}

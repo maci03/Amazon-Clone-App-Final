@@ -1,6 +1,6 @@
 // GlobalStyles.ts
 
-import { createGlobalStyle, ThemedStyledProps } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { MyTheme } from "../themes/Themes";
 
 const GlobalStyles = createGlobalStyle<MyTheme>`
