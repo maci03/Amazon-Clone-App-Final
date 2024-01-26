@@ -253,4 +253,9 @@ const BurgerNav = styled.div`
   a {
     cursor: pointer;
   }
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: white
+  }
 `;
