@@ -113,7 +113,7 @@ const Advertisement = () => {
           <h3>Help & Settings</h3>
           <div className="links-container">
             <li>
-              <a>Your Account </a>
+              <a >Your Account </a>
             </li>
             <li>
               <a>English - EN </a>
