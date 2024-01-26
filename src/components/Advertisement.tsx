@@ -119,7 +119,9 @@ const Advertisement = () => {
               <a>English - EN </a>
             </li>
             <li>
-              <button onClick={() => themeToggler(theme)}>Change Theme</button>
+              <button onClick={() => themeToggler(theme)} className="dark-btn">
+                Change Theme
+              </button>
             </li>
             <li>
               <a>Customs Services </a>
@@ -253,9 +255,8 @@ const BurgerNav = styled.div`
   a {
     cursor: pointer;
   }
-  button {
-    cursor: pointer;
+  .dark-btn {
     border: none;
-    background-color: white
+    background-color: white;
   }
 `;
