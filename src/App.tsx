@@ -13,6 +13,7 @@ import { auth } from "./config/firebase";
 import { lightTheme, darkTheme } from "../src/themes/Themes";
 import GlobalStyles from "../src/themes/GlobalStyles";
 import { ThemeContext } from "./context/darkModeContext";
+import UserAccaunt from "./accaunt/userAccaunt";
 
 const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
@@ -42,6 +43,8 @@ function App() {
               <Route path="/order" element={<OrderScreen />} />
               <Route path="/checkout" element={<CheckOutScreen />} />
               <Route path="/search" />
+{/* route to user page */}
+              <Route path="/account" element={<UserAccaunt />} />
             </Routes>
           ) : (
             <LoginScreen />

@@ -4,6 +4,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import { IconButton } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { Link } from "react-router-dom";
+
 // @ts-ignore
 import Fade from "react-reveal/Fade";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -113,7 +115,7 @@ const Advertisement = () => {
           <h3>Help & Settings</h3>
           <div className="links-container">
             <li>
-              <a >Your Account </a>
+              <Link to="/account">Your Account </Link>
             </li>
             <li>
               <a>English - EN </a>
