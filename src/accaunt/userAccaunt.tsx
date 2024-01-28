@@ -1,30 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
 
 const UserAccaunt = () => {
   return (
-    <Wrapper>
-      <ProfileHeader>Your Profile</ProfileHeader>
-      <ContentWrapper>
-        <ProfileOptions>
-          <Option>Orders</Option>
-          <Option>Wishlist</Option>
-          <Option>Address</Option>
-          <Option>SMS/MAIL</Option>
-          <Option>Payment</Option>
-          <Option>Password</Option>
-          <Option>Security Policy</Option>
-          <Option>Exit</Option>
-        </ProfileOptions>
-        <ProfileInfo>
-          <Input type="text" placeholder="Enter Number" />
-          <Input type="text" placeholder="Enter Mail" />
-          <Input type="text" placeholder="Enter Name" />
-          <Input type="text" placeholder="Enter Surname" />
-          <Input type="text" placeholder="Enter ID" />
-        </ProfileInfo>
-      </ContentWrapper>
-    </Wrapper>
+    <>
+      <Header />
+      <Wrapper>
+        <ProfileHeader>Your Profile</ProfileHeader>
+        <ContentWrapper>
+          <ProfileOptions>
+            <Option>Orders</Option>
+            <Option>Wishlist</Option>
+            <Option>Address</Option>
+            <Option>SMS/MAIL</Option>
+            <Option>Payment</Option>
+            <Option>Password</Option>
+            <Option>Security Policy</Option>
+            <Option>Exit</Option>
+          </ProfileOptions>
+          <ProfileInfo>
+            <Input type="text" placeholder="Enter Surname" name="lastName" />
+            <Input type="text" placeholder="Enter Name" name="firstName" />
+            <Input type="text" placeholder="Enter Mail" name="email" />
+            <Input type="text" placeholder="Enter Number" name="phoneNumber" />
+            <Input type="text" placeholder="Enter ID" name="userId" />
+          </ProfileInfo>
+        </ContentWrapper>
+      </Wrapper>
+      <Footer />
+    </>
   );
 };
 
@@ -62,7 +68,7 @@ const ProfileOptions = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 48%; /* Adjust the width as needed */
+  width: 48%;
 `;
 
 const Option = styled.li`
@@ -83,7 +89,7 @@ const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 48%; /* Adjust the width as needed */
+  width: 48%;
 `;
 
 const Input = styled.input`
