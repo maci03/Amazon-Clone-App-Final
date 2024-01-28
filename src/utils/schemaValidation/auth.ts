@@ -14,7 +14,6 @@ export const signupSchemaValidation = Yup.object().shape({
 		.required('Confirm Password is required')
 		.oneOf([Yup.ref('password'), ], 'Confirm Password does not match'),
 })
-// შესასწორებელი მაქ ნალლ ი
 export const LoginSchemaValidation = Yup.object().shape({
 	email: Yup.string().required('Email is required').email('Email is invalid'),
 	password: Yup.string()
