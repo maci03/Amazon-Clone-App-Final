@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
@@ -14,10 +14,31 @@ import { useSelector } from "react-redux";
 
 import { auth, signOut } from "../config/firebase";
 
+import SearchResults from "../search/SearchResults";
+import axios from "axios";
+import request from "../api/requests";
+
 const Header = () => {
   const [user] = useAuthState(auth);
   const basket = useSelector(selectBasket);
   const history = useNavigate();
+
+  
+
+ const [searchTerm, setSearchTerm] = useState("");
+ const [searchResults, setSearchResults] = useState([]);
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(request.fetchAll, {
+        params: { title: searchTerm },
+      });
+      setSearchResults(response.data);
+    } catch (error) {
+      console.error("Error searching:", error);
+      // Handle error
+    }
+  };
+ 
 
   const userSignedOutHandler = () => {
     // User is signed out(Remove the user from Firebase)
@@ -46,10 +67,15 @@ const Header = () => {
         </LogoContainer>
 
         <SearchContainer>
-          <input type="text"  placeholder="Search Product..."/>
-		  
-          <SearchIcon className="SearchIcon"/>
+          <input
+            type="text"
+            placeholder="Search Product..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <SearchIcon className="SearchIcon" onClick={handleSearch} />
         </SearchContainer>
+        {searchResults.length > 2 && <SearchResults results={searchResults} />}
 
         <NavContainer>
           <CountryFlagContainer>
@@ -89,7 +115,6 @@ const Header = () => {
               <span className="secondOption">& Order</span>
             </NavOption>
           </Link>
-
           <Link to="/login">
             <NavOption>
               <span className="firstOption">Your</span>
