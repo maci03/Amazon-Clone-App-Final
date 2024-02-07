@@ -25,6 +25,9 @@ const SearchResults = ({ results }) => {
 
 export default SearchResults;
 
+
+
+
 const ResultsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
