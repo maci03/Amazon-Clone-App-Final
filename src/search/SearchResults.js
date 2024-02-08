@@ -2,6 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const ResultsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+`;
+
 const ResultsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -64,7 +70,7 @@ const ProductCard = styled.div`
     cursor: pointer;
     text-align: center;
     transition: 0.4s;
-    margin-top: auto; /* Vertically center button */
+    margin-top: auto; 
     font-size: 1rem;
 
     :hover {
@@ -77,37 +83,39 @@ const ProductCard = styled.div`
 
 const SearchResults = ({ results }) => {
   return (
-    <ResultsContainer>
-      {results.length === 0 ? (
-        <NoResultsMessage>No products found</NoResultsMessage>
-      ) : (
-        results.map((product) => (
-          <ProductCard key={product.id}>
-            <Link to={`/product/${product.id}`}>
-              {product.image ? (
-                <img
-                  src={`public/items/${product.image}`}
-                  alt={product.title}
-                />
-              ) : (
-                <PlaceholderImage>No Photo Available</PlaceholderImage>
-              )}
-            </Link>
-            <div>
-              <h3>{product.title}</h3>
+    <ResultsWrapper>
+      <ResultsContainer>
+        {results.length === 0 ? (
+          <NoResultsMessage>No products found</NoResultsMessage>
+        ) : (
+          results.map((product) => (
+            <ProductCard key={product.id}>
+              <Link to={`/product/${product.id}`}>
+                {product.image ? (
+                  <img
+                    src={`public/items/${product.image}`}
+                    alt={product.title}
+                  />
+                ) : (
+                  <PlaceholderImage>No Photo Available</PlaceholderImage>
+                )}
+              </Link>
+              <div>
+                <h3>{product.title}</h3>
 
-              <p className="description__container">{product.description}</p>
+                <p className="description__container">{product.description}</p>
 
-              <p className="product__price">
-                <strong>$ {product.price}</strong>
-                <span className="pl-2 font-semibold">Save 5%</span>
-              </p>
-            </div>
-            <button>add to basket</button>
-          </ProductCard>
-        ))
-      )}
-    </ResultsContainer>
+                <p className="product__price">
+                  <strong>$ {product.price}</strong>
+                  <span className="pl-2 font-semibold">Save 5%</span>
+                </p>
+              </div>
+              <button>add to basket</button>
+            </ProductCard>
+          ))
+        )}
+      </ResultsContainer>
+    </ResultsWrapper>
   );
 };
 
