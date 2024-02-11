@@ -1,4 +1,3 @@
-// Auth
 export interface AuthLoginRequestType {
 	email: string
 	password: string

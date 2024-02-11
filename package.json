@@ -15,7 +15,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.5",
     "better-react-spinkit": "^2.0.4",
-    "firebase": "^10.7.1",
+    "firebase": "^10.8.0",
     "material-icons": "^1.13.12",
     "next": "^14.0.4",
     "react": "^18.2.0",
