@@ -40,7 +40,7 @@ const Advertisement = () => {
         >
           <MenuIcon className="MenuIcon" /> All
         </div>
-        <div>Today's Deals</div>
+        <div >Today's Deals</div>
         <div>Customer Service</div>
         <div>Registry</div>
         <div>Sell </div>

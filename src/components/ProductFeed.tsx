@@ -4,25 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "../api/axios";
 import Product from "./Product";
 
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-interface Product {
-  id: number;
-  title: string;
-  stock: string;
-  url: string;
-  price: number;
-  description: string;
-  category: string;
-}
-
-
-
 const ProductFeed = ({ fetchUrl }: { fetchUrl: string }) => {
-  // Initialize Product variable with empty array
   const [products, setProducts] = useState([]);
 
-  // function to fetch Product information
   async function fetchProductData() {
     try {
       const request = await axios.get(fetchUrl);
