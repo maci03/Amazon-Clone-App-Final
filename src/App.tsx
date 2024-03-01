@@ -45,12 +45,12 @@ function App() {
               <Route path="/order" element={<OrderScreen />} />
               <Route path="/checkout" element={<CheckOutScreen />} />
               <Route path="/search" />
-              {/* route to user page */}
+              
               <Route path="/account" element={<UserAccaunt />} />
             </Routes>
           ) : (
             <LoginScreen />
-          )}
+            )}
         </AppWrapper>
       </StyledApp>
     </ThemeProvider>

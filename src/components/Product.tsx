@@ -11,8 +11,6 @@ import Fade from "react-reveal/Fade";
 import { ProductType } from "../types";
 import { getRandomIntNumberBetween, truncate } from "../utils";
 
-
-
 const Product = ({
   id,
   title,
@@ -58,19 +56,19 @@ const Product = ({
           <div className="product_container">
             <div className="category__container">{category}</div>
             <div className="inner__container">
-              <div className="image__container">
-                <LazyLoadImage
-                  effect="blur"
-                  placeholderSrc="https://image.tmdb.org/t/p/original/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg"
-                  className="product__image"
-                  src={image}
-                  alt="demo image"
-                  height={190}
-                  // @ts-ignore
-                  weight={190}
-                  objectFit="contain"
-                />
-              </div>
+                <div className="image__container">
+                  <LazyLoadImage
+                    effect="blur"
+                    placeholderSrc="https://image.tmdb.org/t/p/original/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg"
+                    className="product__image"
+                    src={image}
+                    alt="demo image"
+                    height={190}
+                    //@ts-ignore
+                    weight={190}
+                    objectFit="contain"
+                  />
+                </div>
               <ProductInfo>
                 <p className="product__title">{truncate(title, 35)}</p>
 
