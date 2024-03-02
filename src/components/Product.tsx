@@ -48,7 +48,6 @@ const Product = ({
   useEffect(() => {
     setStarRating(Math.floor(Math.random() * 6));
   }, [id]);
-
   return (
     <>
       <Wrapper>
