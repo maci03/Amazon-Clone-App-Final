@@ -14,6 +14,8 @@ import { lightTheme, darkTheme } from "../src/themes/Themes";
 import GlobalStyles from "../src/themes/GlobalStyles";
 import { ThemeContext } from "./context/darkModeContext";
 import UserAccaunt from "./accaunt/userAccaunt";
+import ProductContainer from "./components/container/ProductContainer";
+// import ProductContainer from "./components/container/ProductContainer";
 
 
 const StyledApp = styled.div`
@@ -45,12 +47,13 @@ function App() {
               <Route path="/order" element={<OrderScreen />} />
               <Route path="/checkout" element={<CheckOutScreen />} />
               <Route path="/search" />
-              
+
               <Route path="/account" element={<UserAccaunt />} />
+              <Route path="/products/:id" Component={ProductContainer} />
             </Routes>
           ) : (
             <LoginScreen />
-            )}
+          )}
         </AppWrapper>
       </StyledApp>
     </ThemeProvider>

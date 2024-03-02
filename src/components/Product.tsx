@@ -10,6 +10,7 @@ import Fade from "react-reveal/Fade";
 
 import { ProductType } from "../types";
 import { getRandomIntNumberBetween, truncate } from "../utils";
+import { Link } from "react-router-dom";
 
 const Product = ({
   id,
@@ -52,9 +53,10 @@ const Product = ({
     <>
       <Wrapper>
         <Fade bottom>
-          <div className="product_container">
-            <div className="category__container">{category}</div>
-            <div className="inner__container">
+          <Link to={`/products/${id}`}>
+            <div className="product_container">
+              <div className="category__container">{category}</div>
+              <div className="inner__container">
                 <div className="image__container">
                   <LazyLoadImage
                     effect="blur"
@@ -68,47 +70,48 @@ const Product = ({
                     objectFit="contain"
                   />
                 </div>
-              <ProductInfo>
-                <p className="product__title">{truncate(title, 35)}</p>
+                <ProductInfo>
+                  <p className="product__title">{truncate(title, 35)}</p>
 
-                <div className="product__rating">
-                  {Array(5)
-                    .fill(5)
-                    .map(() => (
-                      <span
-                        style={{
-                          color: "#FCDE42",
-                          fontWeight: "bold",
-                          fontSize: "1.5rem",
-                        }}
-                        key={uuidv4()}
-                      >
-                        ✶
-                      </span>
-                    ))}{" "}
-                  <p>
-                    <span>5.0</span>
-                    {getRandomIntNumberBetween(1000, 7000)}
+                  <div className="product__rating">
+                    {Array(5)
+                      .fill(5)
+                      .map(() => (
+                        <span
+                          style={{
+                            color: "#FCDE42",
+                            fontWeight: "bold",
+                            fontSize: "1.5rem",
+                          }}
+                          key={uuidv4()}
+                        >
+                          ✶
+                        </span>
+                      ))}{" "}
+                    <p>
+                      <span>5.0</span>
+                      {getRandomIntNumberBetween(1000, 7000)}
+                    </p>
+                  </div>
+
+                  <p className="description__container">
+                    {truncate(description, 70)}
                   </p>
-                </div>
 
-                <p className="description__container">
-                  {truncate(description, 70)}
-                </p>
-
-                <p className="product__price">
-                  <strong>$ {price}</strong>
-                  <span className="pl-2 font-semibold">Save 5%</span>
-                </p>
-                <p className="product__info-stock">
-                  {stock ? stock : "In Stock - order soon."}
-                </p>
-              </ProductInfo>
-              <button onClick={(event) => addToBasketHandler(event)}>
-                Add to Basket
-              </button>
+                  <p className="product__price">
+                    <strong>$ {price}</strong>
+                    <span className="pl-2 font-semibold">Save 5%</span>
+                  </p>
+                  <p className="product__info-stock">
+                    {stock ? stock : "In Stock - order soon."}
+                  </p>
+                </ProductInfo>
+                <button onClick={(event) => addToBasketHandler(event)}>
+                  Add to Basket
+                </button>
+              </div>
             </div>
-          </div>
+          </Link>
         </Fade>
       </Wrapper>
     </>
